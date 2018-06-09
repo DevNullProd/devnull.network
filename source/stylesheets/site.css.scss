@@ -1,68 +1,77 @@
 html, body{
-  padding: 0;
-  margin: 0;
   height: 100%;
   width: 100%;
+
+  padding: 0;
+  margin: 0;
 
   font-family: "Courier New", Courier, monospace;
 }
 
 a{
-    text-decoration: none; /* Remove underline */
+  text-decoration: none; /* Remove underline */
 }
 
 /* Style the links inside the sidenav */
 #nav a {
-    position: absolute; /* Position them relative to the browser window */
-    left: -145px; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 150px; /* Set a specific width */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-    text-align: right;
+  position: absolute;
+  left: -145px;
+
+  width: 150px;
+  padding: 15px;
+
+  border-radius: 0 5px 5px 0;
+
+  text-align: right;
+  font-size: 20px;
+
+  transition: 0.3s; /* transition on hover */
+  color: white;
 }
 
 #nav a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
+  left: 0;
 }
 
-/* The about link: 20px from the top with a green background */
 #nav-home {
-    top: 20px;
-    background-color: #4CAF50;
+  top: 20px;
+  background-color: #4CAF50;
 }
 
 #nav-wipple {
-    top: 80px;
-    background-color: #2196F3; /* Blue */
+  top: 80px;
+  background-color: #2196F3; /* Blue */
 }
 
 #nav-syracloud {
-    top: 140px;
-    background-color: #f44336; /* Red */
+  top: 140px;
+  background-color: #f44336; /* Red */
 }
 
 #nav-nethack {
-    top: 200px;
-    background-color: #bb5dbf; /* purple */
+  top: 200px;
+  background-color: #bb5dbf; /* purple */
 }
 
 #nav-about {
-    top: 260px;
-    background-color: #555 /* Light Black */
+  top: 260px;
+  background-color: #555 /* Light Black */
 }
 
-#content{
+.content{
+  top: 25%;
+
   width: 100%;
   height: 100%;
+
+  background-size: 100% 100%;
 }
 
-#subcontent {
-    position: absolute;
-    left: 50px;
-    width: 95%;
+.subcontent {
+  position: absolute;
+  top: 25%;
+  left: 50px;
+  width: 90%;
 }
 
 #footer{
@@ -73,7 +82,6 @@ a{
 
   margin-left: auto;
   margin-right: auto;
-  width: 33%;
 
   text-align: center;
 }

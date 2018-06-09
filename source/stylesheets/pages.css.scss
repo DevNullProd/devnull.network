@@ -1,0 +1,151 @@
+/* index page */
+
+#index_content{
+  background-image: url('/images/tech-3041437.jpg');
+}
+
+#index_header{
+  display: inline;
+  padding: 10px;
+  color: green;
+}
+
+#index_subheader{
+  position: fixed;
+  bottom: 15%;
+  right: 3%;
+
+  padding: 10px;
+
+  text-align: right;
+  color: green;
+}
+
+/* wipple page */
+
+#wipple_content{
+  background-image: url('/images/golden-3346988.jpg');
+}
+
+#wipple_header{
+  display: inline-block;
+  float: right;
+
+  padding: 20px;
+  border-radius: 15px;
+
+  color: blue;
+  background-color: rgba(240, 240, 240, 0.7);
+}
+
+#wipple_subheader{
+  display: inline-block;
+  margin-top: 15%;
+  padding: 20px;
+  border-radius: 25px;
+
+  color: blue;
+  background-color: rgba(240, 240, 240, 0.7);
+}
+
+/* syracloud page */
+
+#syracloud_content{
+  background-image: url('/images/turkey-3374058.jpg');
+}
+
+#syracloud_header{
+  display: inline-block;
+  float: right;
+
+  padding: 20px;
+  border-radius: 15px;
+
+  color: blue;
+  background-color: rgba(240, 240, 240, 0.7);
+}
+
+#syracloud_subheader{
+  display: inline-block;
+  margin-top: 15%;
+  padding: 20px;
+  border-radius: 25px;
+
+  color: blue;
+  background-color: rgba(240, 240, 240, 0.7);
+}
+
+/* nethack page */
+
+#nethack_content{
+  background-image: url('/images/cave-94193.jpg');
+}
+
+#nethack_header{
+  display: inline;
+  padding: 40px;
+  border-radius: 15px;
+
+  color: brown;
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+#nethack_subheader1{
+  display: inline-block;
+  float: right;
+
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 15px;
+
+  text-align: right;
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+#nethack_subheader2{
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 50px;
+  padding: 40px;
+
+  border-radius: 15px;
+  text-align: left;
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+#nethack_screenshot{
+  float: right;
+  width: 10%;
+
+  margin-top: 50px;
+  margin-right: 350px;
+}
+
+/* about page */
+
+#about_content{
+  background-image: url('/images/memory-2882481.jpg');
+}
+
+#about_subcontent{
+  top: 5%;
+}
+
+#about_header{
+  display: inline;
+  padding: 10px;
+}
+
+#about_details{
+  display: inline-block;
+  float: right;
+  width: 75%;
+
+  margin-top: 15%;
+  padding: 10px;
+  border-radius: 25px;
+
+  text-align: right;
+  font-size: 1.2em;
+  background-color: white;
+}
