@@ -8,10 +8,10 @@
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "Dev Null Productions" %></title>
     <%= stylesheet_link_tag "site" %>
-    <%= stylesheet_link_tag "site.mobile", :media => "handheld" %>
+    <%= stylesheet_link_tag "site.mobile", :media => "only screen and (max-width:480px)" %>
 
     <%= stylesheet_link_tag "pages" %>
-    <%= stylesheet_link_tag "pages.mobile", :media => "handheld" %>
+    <%= stylesheet_link_tag "pages.mobile", :media => "only screen and (max-width:480px)" %>
 
     <%= javascript_include_tag "site" %>
   </head>

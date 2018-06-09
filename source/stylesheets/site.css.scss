@@ -1,3 +1,22 @@
+/* fonts */
+
+@font-face{
+  font-family: Trench;
+  src: font-url('trench100free.ttf') format('truetype'),
+       font-url('trench100free-webfont.woff') format('woff'),
+       font-url('trench100free-webfont.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: TimeBurner;
+  src: font-url('timeburnernormal.ttf') format('truetype'),
+       font-url('timeburnernormal-webfont.woff') format('woff'),
+       font-url('timeburnernormal-webfont.woff2') format('woff');
+}
+
+
+/* site */
+
 html, body{
   height: 100%;
   width: 100%;
@@ -5,12 +24,33 @@ html, body{
   padding: 0;
   margin: 0;
 
-  font-family: "Courier New", Courier, monospace;
+  font-family: Trench;
 }
 
 a{
   text-decoration: none; /* Remove underline */
 }
+
+/* content sections */
+
+.content{
+  top: 25%;
+
+  width: 100%;
+  height: 100%;
+
+  background-size: 100% 100%;
+}
+
+.subcontent {
+  position: absolute;
+  top: 25%;
+  left: 50px;
+  width: 80%;
+}
+
+
+/* nav - general */
 
 /* Style the links inside the sidenav */
 #nav a {
@@ -32,6 +72,8 @@ a{
 #nav a:hover {
   left: 0;
 }
+
+/* nav - specific */
 
 #nav-home {
   top: 20px;
@@ -58,21 +100,7 @@ a{
   background-color: #555 /* Light Black */
 }
 
-.content{
-  top: 25%;
-
-  width: 100%;
-  height: 100%;
-
-  background-size: 100% 100%;
-}
-
-.subcontent {
-  position: absolute;
-  top: 25%;
-  left: 50px;
-  width: 90%;
-}
+/* footer */
 
 #footer{
   position: absolute;

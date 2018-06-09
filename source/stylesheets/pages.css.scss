@@ -2,10 +2,18 @@
 
 #index_content{
   background-image: url('/images/tech-3041437.jpg');
+  font-family: TimeBurner;
+}
+
+#index_subcontent{
+  top: 20%;
 }
 
 #index_header{
-  display: inline;
+  position: fixed;
+  left: 5%;
+
+  display: inline-block;
   padding: 10px;
   color: green;
 }
@@ -13,7 +21,7 @@
 #index_subheader{
   position: fixed;
   bottom: 15%;
-  right: 3%;
+  right: 5%;
 
   padding: 10px;
 
@@ -28,7 +36,6 @@
 }
 
 #wipple_header{
-  display: inline-block;
   float: right;
 
   padding: 20px;
@@ -95,7 +102,7 @@
   float: right;
 
   margin-top: 50px;
-  padding: 40px;
+  padding: 20px;
   border-radius: 15px;
 
   text-align: right;
@@ -106,7 +113,7 @@
   display: inline-block;
   margin-top: 50px;
   margin-left: 50px;
-  padding: 40px;
+  padding: 20px;
 
   border-radius: 15px;
   text-align: left;
