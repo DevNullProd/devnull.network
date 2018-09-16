@@ -53,12 +53,13 @@ a{
 /* nav - general */
 
 /* Style the links inside the sidenav */
-#nav a {
+.nav_item {
   position: absolute;
-  left: -145px;
+  left: -130px;
 
   width: 150px;
-  padding: 15px;
+  height: 20px;
+  padding: 10px;
 
   border-radius: 0 5px 5px 0;
 
@@ -69,8 +70,13 @@ a{
   color: white;
 }
 
-#nav a:hover {
+.nav_item:hover {
   left: 0;
+}
+
+.nav_icon{
+  display: inline-block;
+  width: 35px;
 }
 
 /* nav - specific */
