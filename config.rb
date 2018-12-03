@@ -44,3 +44,11 @@ page '/*.txt', layout: false
 #   activate :minify_css
 #   activate :minify_javascript
 # end
+
+activate :blog do |blog|
+  blog.name = "blog"
+  blog.prefix = "blog"
+
+  blog.paginate = true
+  blog.default_extension = ".erb"
+end
