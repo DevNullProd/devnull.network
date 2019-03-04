@@ -187,3 +187,36 @@
  box-shadow: 0 0 10px gray;
  border-radius: 5px;
 }
+
+.article-date{
+  float: right;
+  margin-left: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.article-date span {
+  width: 100px;
+  display: block;
+  font: 18px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #666;
+  text-align: center;
+}
+
+.article-date .month {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.article-date .day {
+  font-size: 44px;
+  line-height: 50px;
+  color: #eee;
+  text-shadow: 2px 2px 2px #888;
+}
+
+.article-date .year {
+  background: #e9efee;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

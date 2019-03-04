@@ -51,4 +51,5 @@ activate :blog do |blog|
 
   blog.paginate = true
   blog.default_extension = ".erb"
+  blog.layout = "blog_layout"
 end

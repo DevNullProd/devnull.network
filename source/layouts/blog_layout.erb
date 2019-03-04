@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "Dev Null Productions" %></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= stylesheet_link_tag "site.mobile", :media => "only screen and (max-width:480px)" %>
+
+    <%= stylesheet_link_tag "pages" %>
+    <%= stylesheet_link_tag "pages.mobile", :media => "only screen and (max-width:480px)" %>
+
+    <%= javascript_include_tag "site" %>
+  </head>
+
+  <body>
+    <div id="blog_content" class="content">
+      <div id="blog_subcontent" class="subcontent">
+        <div id="blog_header_wrapper">
+          <h1 id="blog_header">
+            Dev Null Productions
+          </h1>
+        </div>
+
+        <div style="clear: both"></div>
+
+        <% if current_article %>
+          <div class="article">
+            <%= partial :article_date, :locals => {:article => current_article} %>
+            <h2><%= current_article.title %></h2>
+            <%= yield %>
+          </div>
+
+        <% else %>
+          <%= yield %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= partial :nav %>
+
+    <div style="color: white">
+      <%= partial :footer %>
+    </div>
+  </body>
+</html>
