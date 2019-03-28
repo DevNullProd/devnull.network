@@ -53,3 +53,5 @@ activate :blog do |blog|
   blog.default_extension = ".erb"
   blog.layout = "blog_layout"
 end
+
+activate :syntax
