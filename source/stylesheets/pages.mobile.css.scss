@@ -38,11 +38,23 @@
   text-align: right;
 }
 
+#nethack_content{
+  font-size: 50%;
+}
+
+#nethack_subheader1,
+#nethack_subheader2{
+  margin-top: 10px;
+}
+
 #about_subcontent{
-  top: 5%;
-  height: 70%;
+  top: 10%;
+}
+
+#about_content{
+  font-size: 75%;
 }
 
 #about_details{
-  font-size: 0.9em;
+  font-size: 1.1em;
 }
