@@ -3,16 +3,46 @@
 }
 
 #index_subcontent{
-  top: 15%;
+  top: 10%;
+  background-color: unset;
+  height: 60%;
 }
 
 #index_header{
-  left: 15%;
-  text-align: right;
+  font-size: 2.15em;
+}
+
+#index_subheader{
   font-size: 1.25em;
 }
 
+#xrp1ntel_subcontent{
+  top: 10%;
+  height: 75%;
+}
+
+#xrp1ntel_header{
+  right: 10px;
+}
+
+#xrp1ntel_subheader{
+  font-size: 1em;
+}
+
+#syracloud_header{
+  font-size: 1em;
+}
+
+#syracloud_subheader{
+  right: 0;
+  text-align: right;
+}
+
+#about_subcontent{
+  top: 5%;
+  height: 70%;
+}
+
 #about_details{
-  margin-top: 15px;
-  font-size: 1.0em;
+  font-size: 0.9em;
 }
