@@ -99,13 +99,13 @@ a.nav_item{
   background-color: #f44336; /* Red */
 }
 
-#nav-nethack {
-  top: 260px;
+#nav-blog {
+  top: 200px;
   background-color: #bb5dbf; /* purple */
 }
 
 #nav-about {
-  top: 200px;
+  top: 260px;
   background-color: #555 /* Light Black */
 }
 
@@ -166,4 +166,11 @@ a.nav_item{
   animation-duration: 1.4s;
   animation-fill-mode: forwards;
   animation-delay: 0.2s;
+}
+
+/* misc */
+
+.center_img{
+  margin: auto;
+  display: block;
 }

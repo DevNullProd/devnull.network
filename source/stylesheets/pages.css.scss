@@ -167,11 +167,13 @@
 /* blog page */
 
 #blog_content{
-  background-image: url('/images/desktop-2325627.jpg');
+  background-image: url('/images/technology-785742.jpg');
+  background-attachment: fixed;
 }
 
 #blog_subcontent{
   top: 0%;
+  right: 0;
   width: 95%;
 }
 
@@ -180,9 +182,10 @@
 }
 
 #blog_header{
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
   display: inline-block;
   margin: auto;
+  margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
 }
@@ -190,7 +193,7 @@
 .article{
  padding: 5px 10px 10px 15px;
  margin: 10px;
- background-color: white;
+ background-color: rgba(255, 255, 255, 0.7);
  box-shadow: 0 0 10px gray;
  border-radius: 5px;
 }
@@ -213,6 +216,7 @@
 .article-date .month {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  background: #e9efee;
 }
 
 .article-date .day {
@@ -220,6 +224,8 @@
   line-height: 50px;
   color: #eee;
   text-shadow: 2px 2px 2px #888;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .article-date .year {

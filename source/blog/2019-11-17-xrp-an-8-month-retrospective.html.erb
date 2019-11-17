@@ -1,0 +1,93 @@
+---
+
+title: XRP - An 8 Month Retrospective
+date: 2019-11-17 13:32 UTC
+tags:
+
+---
+
+<p>
+Can you believe it's almost December already! Lets look at many of the great events and happenings that we participated in this past year.
+</p>
+
+<h2>XRP Community Meetup - Amersfoort</h2>
+
+<p>
+Earlier last spring Dev Null took a trip to the scenic country of the Netherlands to attend the <b>XRP Community Meetup</b> in Amersfoort, hosted by none other than <a href="https://twitter.com/WietseWind">Wieste</a> of <a href="https://xrpl-labs.com/en/">XRPL Labs</a> and <a href="https://twitter.com/Tom_Kuster">Tom Kuster</a>. Denmark is a beautiful country, full of history and culture, especially in the financial world, as it was one of the original homes of the modern banking industry. The meetup was a great experience as it faciliated an opportunity to put faces to all the Twitter handles and form bonds which will last a lifetime.
+</p>
+
+<img src="/images/xrp-meetup-amersfoort.jpg" style="margin: auto; display: block;"/>
+
+<h2>Development Releases - XRBP, Wipple, xrp1ntel</h2>
+
+<p>
+Spring of this year also saw a flury of releases of <a href="https://github.com/DevNullProd/XRBP">XRBP</a>, our Open Source interface to the XRPL, written in Ruby. Early releases included base level support for the <a href="https://xrpl.org/public-rippled-methods.html">XRP websocket API</a> as well as related web based resources (the <a href="https://xrpl.org/data-api.html">DataV2</a> API, exchange data, etc). Subsequent releases incorporated functionality allowing the client to:
+</p>
+
+<ul>
+  <li>Crawl / traverse the peer-to-peer network of XRPL nodes</li>
+  <li>Directly parse the XRP binary database (<i>the nodestore</i>)</li>
+  <li>Generate node and account keys pairs and addresses</li>
+  <li>Access the <a href="https://www.sqlite.org/index.html">sqlite</a> database embedded in XRPL instances</li>
+  <li>And much more!</li>
+</ul>
+
+<p>
+Additionally, the intial prototype version of our analytics engine, dubbed <a href="https://wipple.devnull.network/">Wipple</a> (originally stemming from the combination of '<b>W</b>allet' and 'R<b>ipple</b>') saw much growth at the beginning of the year up to the summer. Most of this early development was spent spec'ing out and prototyping many features and ideas that we were brainstorming. Over the summer this product underwent a rewrite and redesign, and morphed into our new flagship analytics product <a href="https://xrp1ntel.com">xrp1ntel</a> which is under active development to this day.
+</p>
+
+<div style="display: flex; justify-content: space-evenly">
+  <img src="/images/original-wipple.jpg"/>
+  <img src="/images/new-wipple.png"     />
+  <img src="/images/xrp1ntel-report.png"/>
+</div>
+
+<p style="text-align: center"><i>The evolution of the XRP Analytics Engine</i></p>
+
+<h2>Dev Null Prod relocates &amp; the beginning of NYC/XRP</h2>
+
+<p>
+This past summer also saw the relocation of Dev Null Productions from Upstate NY to NYC. While we will always have a presence upstate and it will always have a special place in our heart, this was decision was executed so as to maximize growth of the business and network, and we have been having so much fun that we haven't looked back!
+</p>
+
+<p>
+Part of the fun has included organizing and running the <a href="https://www.meetup.com/NYC-XRP/">NYC/XRP</a> meetup, consisting of a group of XRP enthusiasts in the tri-state area. Meetups are held at an interval of every other month and consists of a variety of social gatherings and tech talks used to bring the community together for networking and growth. To this date the meetups we've held included
+</p>
+
+<ul>
+  <li>July - Our first community social / meet &amp; greet</li>
+  <li>September - Our first tech talk held in Chelsea, the presentation of the night was titled <b>XRP - An Intro</b></li>
+  <li>November - An informal dinner which we held at a great steakhouse in midtown</li>
+</ul>
+
+The next meetup will be held in January, and most likely will be in a tech talk format again. Be sure to <b>join the meetup group to stay in the loop</b>!
+</p>
+
+<img src="/images/nyc-xrp.jpg" style="margin: auto; display: block;"/>
+
+<h2>Conference Galore</h2>
+
+<p>
+The past year has seen our attendance at several major conferences. From the 1st and 2nd <a href="https://sfblockchainweek.io/">SFBW</a> conferences in San Francisco, CA, to <a href="https://www.money2020.com/">Money 20/20</a> in Las Vegas, NV, to the <a href="https://aws.amazon.com/events/summits/new-york/">AWS Summit</a> in our new home city, we never missed an opportunity to promote XRP technology and <b>#XRPCommunity</b> efforts to build the ecosystem. We're big on conference attendance, not only are they great ways to meet a spectrum of professionals from many industries but they are excellent opportunities to quickly get our startup's brand infront of alot of organizations, both small and large. We're planning and are very eager to attend <b><a href="https://www.eventbrite.com/e/dltconla-2020-tickets-74699926491">DLTCONLA</a></b> (Los Angeles, CA) with several members from the NYC/XRP community this spring and will be sure to continue attending the hottest events as we hear about them!
+</p>
+
+<img src="/images/dltconla.jpg" style="margin: auto; display: block;"/>
+
+<h2>Rippled Contributions</h2>
+
+<p>
+One final endeavor that we'd like to point out is our continued involvement in the development of the core rippled codebase driving the XRPL Blockchain. Serving dual purposes, firstly to <b>contribute to and support the growth of the ecosystem</b>, as well as for us to stay in the loop at the ground level (there is no better way to do that than to be working on the core repo!), we've submitted several patches/pull-requests to the codebase which have been subsequently merged / integrated into the core product (props to the Ripple Labs engineering team who are top notch and very friendly/open to development synergy). These features include:
+
+<ul>
+  <li>Code cleanups &amp; fixes, addressing issues as we encountered them during our <a href="https://wipple.devnull.network/research/rippled.html">source code analysis</a></li>
+  <li>Refactoring of the <a href="https://cmake.org/">CMake</a>-based build system, to faciliate modularization, compartmentalization, and easier-understanding by new contributors</li>
+  <li>Implementation of the <a href="https://github.com/ripple/rippled/commit/15c5f9c1111eeea0743dbd9d9b0028756ff72ade">consensus stream</a>, allowing the user to subscribe to real-time updates of consensus state</li>
+</ul>
+
+<h2>Fin</h2>
+
+<p>
+And that's all for now! This past year has seen <b>momentous growth</b> both in terms of the <b>#XRPCommunity</b> and Dev Null Productions, we can't wait to continue driving things forward and seeing the ecosystem evolve next year!
+
+Until next time... <b>Happy Zerping</b>!
+</p>
