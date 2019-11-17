@@ -169,12 +169,15 @@
 #blog_content{
   background-image: url('/images/technology-785742.jpg');
   background-attachment: fixed;
+
+  display: flex;
+  justify-content: end;
+  height: unset;
 }
 
 #blog_subcontent{
-  top: 0%;
-  right: 0;
   width: 95%;
+  position: unset;
 }
 
 #blog_header_wrapper{
