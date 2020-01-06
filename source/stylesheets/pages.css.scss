@@ -239,7 +239,7 @@
   border-bottom-right-radius: 10px;
 }
 
-.article pre{
+.article pre:not(.highlight){
   background-color: white;
   padding: 15px;
   border-radius: 5px;
