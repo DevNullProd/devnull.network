@@ -1,0 +1,374 @@
+---
+
+title: VueJS Plugin Development Guide
+date: 2020-01-05 08:04 UTC
+tags:
+
+---
+
+<p>
+In this guide we will explore how to create a new <a href="https://vuejs.org/">VueJS</a> plugin from scratch. While creating a new standalone vuejs project is fairly straightforward (1. <a href="https://vuejs.org/v2/guide/installation.html">install</a> vuejs 2. vue create &lt;project_name&gt; 3. yarn serve), creating a reusable plugin that is able to be incorporated into any VueJS project in a generic way is a more complicated process. Furthermore due to the novelty of the entire nodejs and vuejs ecosystem, there is a plethora of documentation specific to different steps of the process scattered across the web. This guide aims to provide a unified tutorial on how to create a plugin from scratch.
+</p>
+
+<img src="/images/confused-js.jpg" style="width: 100%; max-width: 800px; margin: auto; display: block;"/>
+
+<p>
+<b>Note</b>: We will be taking the most straightforward process to accomplish this, while there may be shortcuts, utilities to assist with different stages, and some steps may change over time, this guide should provide a concise resource of how to create and use a VueJS plugin.
+</p>
+
+<h2>Terminology:</h2>
+
+<p>
+Before we begin, here are some terms that developers will need to know:
+</p>
+
+<ul>
+  <li><b>JavaScript</b>: eg JS, the programming language which we will be developing in</li>
+  <li><b>vuejs</b>: A popular JS framework for creating web-based user interfaces</li>
+  <li><b>npm</b>: The <i>node package manager</i>, a framework and set of utilities used to package and upload/download reusable bundles of javascript code (known as 'packages')</li>
+  <li><b>yarn</b>: Another package manager for javascript with a builtin command specification and execution system. Uses the npm package registry on the backend (thus all packages uploaded to the npm repository are available to yarn for installation &amp; inclusion)</li>
+</ul>
+
+<h2>Additional Terms:</h2>
+
+<p>
+Some additional terms which are good to know though not techincally needed:
+</p>
+
+<ul>
+  <li><b>nodejs</b>: the JS runtime environment that executes JS code on the local machine</li>
+  <li><b>ECMAScript</b>: eg ES, a standardization of syntax for languages such as Javascript. Comes in two primary variants ES5 and ES6. ES6 is an improvement on ES5 but is incompatible and most major browsers do not support it. ES6 has been superseded by more recent versions but those are compatible with ES6.</li>
+  <li><b>babel</b>: A transpiler (source-to-source compiler) that converts newer version of ES (ES6+) to ES5 for browser compatability.</li>
+  <li><b>webpack</b>: The underlying bundler which determines dependencies amongst your JS components and assembles them together into a single/isolated/importable module.</li>
+  <li><b>rollup</b>: Another JS module bundler with a similar feature set to webpack but different implementation &amp; tradeoffs</li>
+  <li><b>commonjs</b> and <b>AMD</b>: Older JS encapsulation systems used before modules were standardized in ES6. Developers no longer need to concern themselves with these technologies.</li>
+</ul>
+
+<h2>Project Layout:</h2>
+
+<p>
+To begin, create a new directory for the plugin you would like to create. As a standard, it is good practice to prefix vuejs plugins with the <b>vue-</b> moniker. So if we wanted to create a 'nyan-cat' plugin, we would start byrunning:
+</p>
+
+<pre>
+$ mkdir vue-nyan-cat
+</pre>
+
+<p>
+Inside this directory, create some subdirs which will be used to encapsulate standard vuejs constructs and build artifcats:
+</p>
+
+<pre>
+$ cd vue-nyan-cat
+$ mkdir dist examples src src/assets
+</pre>
+
+<h2>package.json:</h2>
+
+<p>
+Create a <b>package.json</b> file, which yarn will you will use to specify dependencies and commands for yarn to execute:
+</p>
+
+<pre>
+{
+  "name": "vue-nyan-cat",
+  "version": "0.0.2",
+  "description": "Renders the Nyan Cat in a VueJS based interface",
+  "keywords": [
+    "vuejs",
+    "plugin",
+    "nyan cat"
+  ],
+  "main": "dist/vue-nyan-cat.common.js",
+  "license": "MIT",
+  "author": "Mo Morsi <devnullproductions@gmail.com>",
+  "repository": "github:DevNullProd/vue-nyan-cat",
+  "scripts": {
+    "serve": "vue-cli-service serve examples/main.js",
+    "build": "vue-cli-service build --target lib src/nyan-cat.vue"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@vue/cli-service": "^4.1.1",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
+</pre>
+
+<h2>package.json explained:</h2>
+
+<p>
+Lets explore each of these sections one at a time.
+</p>
+
+<p>
+To start we specify package metadata. This includes:
+</p>
+
+<ul>
+  <li><b>name</b>: The unique name of your plugin</li>
+  <li><b>version</b>: The current <a href="https://docs.npmjs.com/about-semantic-versioning">version</a> of your plugin, make sure to increase appropriately this on every release</li>
+  <li><b>description</b>: A human-friendly textual description of your plugin</li>
+  <li><b>keywords</b>: Phrases to associate with your plugin to make it easy to lookup when uploaded to the npm package repository (more on this later)</li>
+  <li><b>main</b>: The module output by the build system which will be loaded when a developer imports your plugin into their project. Note this module just constitutes the javascript code which is included in your plugin, the developer using it may also have to include the stylesheets (more on this later)</li>
+  <li><b>license</b>: The <a href="https://spdx.org/licenses/">legal license</a> which you are releasing your plugin under</li>
+  <li><b>author</b>: The developer/company which you are referencing as the author of the plugin</li>
+  <li><b>repository</b>: The location where the plugin source code can be found</li>
+</ul>
+
+<pre>
+{
+  "name": "vue-nyan-cat",
+  "version": "0.0.2",
+  "description": "Renders the Nyan Cat in a VueJS based interface",
+  "keywords": [
+    "vuejs",
+    "plugin",
+    "nyan cat"
+  ],
+  "main": "dist/vue-nyan-cat.common.js",
+  "license": "MIT",
+  "author": "Mo Morsi <devnullproductions@gmail.com>",
+  "repository": "github:DevNullProd/vue-nyan-cat",
+</pre>
+
+<p>
+Next we define scripts, or command that will be accessible via invocation with yarn, eg. <i>yarn run example</i> which can be abbreviated to <i>yarn example</i>.
+</p>
+
+<p>
+Here we define two commands:
+</p>
+
+<ul>
+  <li><b>serve</b> which provides access to the plugin example it via a built-in webserver. Using this you can view the plugin locally by opening a web-brower and pointing it at the provided url (more on this below)</li>
+  <li><b>build</b> which builds our package into a format which you can upload to the <i>npm repository</i> for subsequent download (by yourself and others, more below)</li>
+</ul>
+
+<pre>
+  "scripts": {
+    "serve": "vue-cli-service serve examples/main.js",
+    "build": "vue-cli-service build --target lib src/nyan-cat.vue"
+  },
+</pre>
+
+<p>
+As you can see above, configuration options are specified for both the poi and bili commands, which may be tweaked if desired
+</p>
+
+<p>
+Finally we specify <i>dependencies</i> and <i>devDependencies</i> which our component requires to perform properly. Dependencies are need to execute your plugin in production and are pulled in when it is downloaded/installed from npm. devDependencies are only used during the development phase, in our case the VueJS dependencies we need to run the project commands.
+</p>
+
+<pre>
+  "dependencies": {},
+  "devDependencies": {
+    "@vue/cli-service": "^4.1.1",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
+</pre>
+
+<h2>Plugin Implementation:</h2>
+
+<p>
+  Now lets get to actually building the plugin! We won't go into too much detail as to how VueJS works here, there are plenty of docs on how to develop VueJS functionality on the web (including the excellent <a href="https://vuejs.org/v2/guide/">developer documentation</a>), but we will discuss a few critical components:
+</p>
+
+<ul>
+  <li><b>src/nyan-cat.vue</b> - the main module which will define the top level component constituting our plugin</li>
+  <li><b>src/index.js</b> - defines the <i>install</i> target which will be executed when our plugin is loaded into a VueJS project</li>
+  <li><b>examples/index.js</b> - the main entry point for the <i>example</i> target, recall this was referenced in the <i>poi</i> script in package.json</li>
+</ul>
+
+<h3>src/nyan-cat.vue</h3>
+
+<p>The main implementation of our plugin... do your magic here!</p>
+
+<pre>
+&lt;template&gt;
+  &lt;div id="nyan-cat"&gt;
+    &lt;img src="https://raw.githubusercontent.com/DevNullProd/vue-nyan-cat/master/src/assets/nyan-cat.gif" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'NyanCat'
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+#nyan-cat{
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+&lt;/style&gt;
+</pre>
+
+<p>
+Because we are referencing a static image (nyan-cat.gif) it must be downloaded and placed in the src/assets directory. You may get it from here:
+</p>
+
+<img src="/images/nyan-cat.gif" />
+
+<h3>src/index.js</h3>
+
+<p>
+Recall this defines <b>install</b> which will be executed when we import &amp; use our plugin in a larger VueJS project.
+</p>
+
+<pre>
+import NyanCat from './nyan-cat.vue'
+
+export default {
+  install : function(vue, opts){
+    vue.component('NyanCat', NyanCat)
+  }
+}
+</pre>
+
+<h3>examples/index.js</h3>
+
+<p>This replicates the 'main' module of a larger VueJS project and will be used for demonstation / test purposes</p>
+
+<pre>
+import Vue from 'vue'
+import App from './App.vue';
+
+import NyanCat from '../src/index.js'
+
+Vue.use(NyanCat)
+
+new Vue({
+  el: '#app',
+  render(h){ return h(App) }
+})
+</pre>
+
+<h3>examples/App.vue</h3>
+
+<p>The top level component in our example project where we actually use our plugin in the UI</p>
+
+<pre>
+&lt;template&gt;
+  &lt;NyanCat /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default{
+}
+&lt;/script&gt;
+</pre>
+
+<h3>examples/index.html</h3>
+
+<p>Defines the static web page in which the top level component in our example project will be mounted</p>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;div id="app"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h2>Test it!</h2>
+
+<p>
+And that's it! To test our plugin by running the example, do the following:
+</p>
+
+<h3>Install dependencies</h3>
+
+<pre>
+$ yarn install
+</pre>
+
+<h3>Build and run the example</h3>
+<pre>
+$ yarn serve
+</pre>
+
+<p>
+Finally open a web browser and point it a <a href="http://localhost:4000/vue-nyan-cat/">http://localhost:4000/vue-nyan-cat/</a> to see your plugin!
+</p>
+
+<img src="/images/vuejs-plugin-nyancat.png" style="width: 100%"/>
+
+<h2>Round out your plugin</h2>
+
+<p>
+In general it is good practice to include a README.md file, explaining how to install, import, and use your plugin, and a LICENSE file containing the full text of the license which you are releasing your package under (the same one as that referenced in package.json above).
+
+<h2>Build it!</h2>
+
+<pre>
+$ yarn build
+</pre>
+
+<p>
+This will place your plugin output in the <i>dist</i> directory. Now you are ready to ship it!
+</p>
+
+<h2>Ship it!</h2>
+
+<p>
+In order for others to access your plugin you will have to upload it to NPM. First <a href="https://docs.npmjs.com/creating-a-new-npm-user-account">sign up for a new account</a>. Once you have done so, login via the following command:
+</p>
+
+<pre>
+$ npm login
+</pre>
+
+<p>
+Enter the credentials you supplied when creating your account. Finally upload it with:
+</p>
+
+<pre>
+$ npm publish
+</pre>
+
+<p>
+The package will now be on NPM! You may view it at: <a href="https://www.npmjs.com/package/vue-nyan-cat">https://www.npmjs.com/package/vue-nyan-cat</a>.
+</p>
+
+<h2>Use it!</h2>
+
+<p>
+To use our new plugin in a larger VueJS project, first cd to the project dir and install it with yarn:
+</p>
+
+<pre>
+$ yarn add vue-nyan-cat
+</pre>
+
+Finally import the plugin into your component and use:
+
+<pre>
+&lt;template&gt;
+  &lt;div id="app"&gt;
+    &lt;NyanCat /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import NyanCat from 'vue-nyan-cat'
+
+export default {
+  name: 'app',
+  components: {
+    NyanCat
+  }
+}
+&lt;/script&gt;
+</pre>
+
+<h2>Fin</h2>
+
+You can see the complete example above on <a href="https://github.com/DevNullProd/vue-nyan-cat">github</a> along with other examples of Vue components under the <a href="https://github.com/DevNullProd">DevNullProd</a> organization.
