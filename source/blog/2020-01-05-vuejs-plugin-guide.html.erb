@@ -81,7 +81,7 @@ Create a <b>package.json</b> file, which yarn will you will use to specify depen
   ],
   "main": "dist/vue-nyan-cat.common.js",
   "license": "MIT",
-  "author": "Mo Morsi <devnullproductions@gmail.com>",
+  "author": "Mo Morsi &lt;devnullproductions@gmail.com&gt;",
   "repository": "github:DevNullProd/vue-nyan-cat",
   "scripts": {
     "serve": "vue-cli-service serve examples/main.js",
@@ -129,7 +129,7 @@ To start we specify package metadata. This includes:
   ],
   "main": "dist/vue-nyan-cat.common.js",
   "license": "MIT",
-  "author": "Mo Morsi <devnullproductions@gmail.com>",
+  "author": "Mo Morsi &lt;devnullproductions@gmail.com&gt;",
   "repository": "github:DevNullProd/vue-nyan-cat",
 </pre>
 
@@ -359,6 +359,7 @@ Finally import the plugin into your component and use:
 
 &lt;script&gt;
 import NyanCat from 'vue-nyan-cat'
+import 'vue-nyan-cat/dist/vue-nyan-cat.css'
 
 export default {
   name: 'app',
