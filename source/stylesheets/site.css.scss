@@ -53,9 +53,9 @@ html, body{
 /* Style the links inside the sidenav */
 .nav_item {
   position: absolute;
-  left: -130px;
+  left: -150px;
 
-  width: 150px;
+  width: 170px;
   height: 20px;
   padding: 10px;
 
@@ -89,7 +89,7 @@ a.nav_item{
   background-color: #4CAF50;
 }
 
-#nav-xrp1ntel {
+#nav-xrpintel {
   top: 80px;
   background-color: #2196F3; /* Blue */
 }
@@ -99,13 +99,18 @@ a.nav_item{
   background-color: #f44336; /* Red */
 }
 
-#nav-blog {
+#nav-zerptracker {
   top: 200px;
+  background-color: #e8a061; /* orange */
+}
+
+#nav-blog {
+  top: 260px;
   background-color: #bb5dbf; /* purple */
 }
 
 #nav-about {
-  top: 260px;
+  top: 320px;
   background-color: #555 /* Light Black */
 }
 
