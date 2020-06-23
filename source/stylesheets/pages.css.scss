@@ -77,14 +77,25 @@
 
 /* zerp tracker page */
 
-#zerptracker_subcontent{
-  top: 20%;
-  height: 70%;
+#zerptracker_content{
+  background-image: url('/images/email-3249062_1280.png');
+}
 
-  left: 7%;
-  width: 80%;
-  border: 2px solid #FFFBD3;
+#zerptracker_subcontent{
+  right: 7%;
   border-radius: 5px;
+}
+
+#zerptracker_header{
+  text-align: center;
+  color: white;
+  font-size: 2.25em;
+}
+
+#zerptracker_subheader{
+  padding: 10px;
+  font-size: 1.5em;
+  color: white;
 }
 
 /* syracloud page */
