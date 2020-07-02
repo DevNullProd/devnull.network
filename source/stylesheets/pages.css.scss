@@ -211,9 +211,8 @@
 
 #blog_header{
   background-color: rgba(255, 255, 255, 0.4);
-  display: inline-block;
   margin: auto;
-  margin-top: 10px;
+  margin: 10px;
   padding: 10px;
   border-radius: 5px;
 }
@@ -245,21 +244,23 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background: #e9efee;
+  padding-top: 5px;
 }
 
 .article-date .day {
   font-size: 44px;
   line-height: 50px;
   color: #eee;
+  background: black;
   text-shadow: 2px 2px 2px #888;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding-top: 10px;
 }
 
 .article-date .year {
   background: #e9efee;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding-top: 5px;
 }
 
 .article pre:not(.highlight){
